@@ -11,6 +11,27 @@ natural languages. Running in the MS Windows environment, its use is governed by
 
 See the [Notepad++ official site](https://notepad-plus-plus.org/) for more information.
 
+Windows Preview Handler
+-----------------------
+
+This fork is a work-in-progress to use parts of Notepad++ to build a fully functional code-preview handler for Windows Explorer:
+- Support dark mode and light mode of Windows to choose color theme - direct use of different themes from Notepad++
+- Use Notepad++ language xml files for most file format support
+- Allow preview handler colors to be updated quickly - from detecting changes in Notepad++ files
+- Support files as large as memory allows - using Notepad++ Scintella/Lexilla for all the grunt work
+- Registration of custom file extensions - i.e. no-file-extension - like 'makefile' that other preview handlers cannot
+- Allow for user to override what theme is used via a config.xml file for light and dark mode with cascade fallback:
+```
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<standardlangpath>%PROGRAMFILES%\Notepad++\langs.model.xml</standardlangpath>
+	<standardlightmode>%PROGRAMFILES%\Notepad++\stylers.model.xml</standardlightmode>
+	<standarddarkmode>%PROGRAMFILES%\Notepad++\themes\Twilight.xml</standarddarkmode>
+	<customlangpath>%PROGRAMFILES%\Notepad++\langs.model.xml</customlangpath>
+	<customlightmode>%APPDATA%\Notepad++\themes\Solarized.xml</customlightmode>
+	<customdarkmode>%APPDATA%\Notepad++\themes\SolarizedBlue.xml</customdarkmode>
+</config>
+```
 
 Notepad++ Root Certificate
 --------------------------
